@@ -7,31 +7,49 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Parameter;
 
 
 @Entity
 @Table(name = "Employee")
 public class Employee implements Serializable{
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "gen")
+    @GenericGenerator(name = "gen", strategy = "foreign",parameters = {@Parameter(value = "ed", name = "property")})
     private int id;
     
+    
 //    @Id
-    @Column(name = "name")
+    @Column(name = "name", nullable = false)
     private String name;
     
     private double salary;
 
     @Transient
-    private String Aasas;    
+    private String this_is_not_a_Column;    
     
     
     @Temporal(TemporalType.TIMESTAMP)
     private Date joining_date = new Date();
+    
+    @OneToOne
+    @JoinColumn(name = "id")
+    EmployeeDetails ed = new EmployeeDetails();
+
+    public EmployeeDetails getEd() {
+        return ed;
+    }
+
+    public void setEd(EmployeeDetails ed) {
+        this.ed = ed;
+    }
 
     public Date getJoining_date() {
         return joining_date;
@@ -40,14 +58,13 @@ public class Employee implements Serializable{
     public void setJoining_date(Date joining_date) {
         this.joining_date = joining_date;
     }
-    
 
-    public String getAasas() {
-        return Aasas;
+    public String getThis_is_not_a_Column() {
+        return this_is_not_a_Column;
     }
 
-    public void setAasas(String Aasas) {
-        this.Aasas = Aasas;
+    public void setThis_is_not_a_Column(String this_is_not_a_Column) {
+        this.this_is_not_a_Column = this_is_not_a_Column;
     }
     
     public int getId() {

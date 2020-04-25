@@ -1,6 +1,7 @@
 package test;
 
 import hibernate.Employee;
+import hibernate.EmployeeDetails;
 import hibernate.Utility;
 import java.util.Date;
 import org.hibernate.Session;
@@ -24,18 +25,23 @@ public class Test {
         
 //        for (int i = 211; i <= 220; i++) {
 //            Employee emp = new Employee();
+//            EmployeeDetails ed = new EmployeeDetails();
+//            ed.setExperience(i);
+//            ed.setExpertise("Java");
 ////            emp.setId(i*7*2);
 //            emp.setName("Noman-"+i*15*2);
 //            emp.setSalary(100000*i);
 //            emp.setJoining_date(new Date());
+//            emp.setEd(ed);
+//            
 //            session.beginTransaction(); //Must begin transaction before saving each object
 //            session.save(emp);
 //            session.getTransaction().commit();
 //        }
 
-        System.out.println("Getting the employee with id 14:");
-        Employee e = (Employee) session.get(Employee.class, 14);
-        System.out.println("Retrieved directly from database: "+e.getName()+" | "+e.getSalary());
+        System.out.println("Getting the employee with id 9:");
+        Employee e = (Employee) session.get(Employee.class, 9);
+        System.out.println("Retrieved directly from database: "+e.getName()+" | "+e.getSalary()+" | "+e.getEd().getExpertise()+" | "+e.getEd().getExperience());
 
         System.out.println("New name is being set for the first time:");
         e.setName("SumiJamySumi-6450");
@@ -46,9 +52,9 @@ public class Test {
         System.out.println("Transaction commiting:");
         session.getTransaction().commit();
         
-        System.out.println("Getting the employee with id 14:");
-        e = (Employee) session.get(Employee.class, 14);
-        System.out.println("Details after update: " + e.getName() + " | " + e.getSalary());
+        System.out.println("Getting the employee with id 9:");
+        e = (Employee) session.get(Employee.class, 9);
+        System.out.println("Details after update: " + e.getName() + " | " + e.getSalary()+" | "+e.getEd().getExpertise()+" | "+e.getEd().getExperience());
         
         System.out.println("Changing the Name again and salary:");
         e.setSalary(100000);
@@ -60,8 +66,8 @@ public class Test {
         System.out.println("Transaction commiting again:");
         session.getTransaction().commit();
         
-        e = (Employee) session.get(Employee.class, 14);
-        System.out.println("Details after updating where id =14: " + e.getName() + " | " + e.getSalary());
+        e = (Employee) session.get(Employee.class, 9);
+        System.out.println("Details after updating where id =9: " + e.getName() + " | " + e.getSalary()+" | "+e.getEd().getExpertise()+" | "+e.getEd().getExperience());
 
         session.close();
         sessionFactory.close();

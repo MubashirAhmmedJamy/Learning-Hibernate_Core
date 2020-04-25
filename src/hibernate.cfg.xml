@@ -29,5 +29,6 @@
         <property name="hibernate.dbcp.maxWaitMillis">-1</property>-->
         
         <mapping class="hibernate.Employee" />
+        <mapping class="hibernate.EmployeeDetails" />
     </session-factory>
 </hibernate-configuration>
