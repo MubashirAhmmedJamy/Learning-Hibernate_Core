@@ -6,9 +6,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 
-@Entity(name = "ed")
+@Entity
+@Table(name = "EmployeeDetails")
 public class EmployeeDetails implements Serializable {
     @Column(name = "expert_of", nullable = false)
     private String expertise;
@@ -17,7 +19,7 @@ public class EmployeeDetails implements Serializable {
     private int experience;
     
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
     private int id;
 

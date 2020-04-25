@@ -1,6 +1,8 @@
 package hibernate;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,6 +10,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -21,7 +25,7 @@ import org.hibernate.annotations.Parameter;
 @Table(name = "Employee")
 public class Employee implements Serializable{
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = "gen")
+    @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "gen")
     @GenericGenerator(name = "gen", strategy = "foreign",parameters = {@Parameter(value = "ed", name = "property")})
     private int id;
     
@@ -42,6 +46,19 @@ public class Employee implements Serializable{
     @OneToOne
     @JoinColumn(name = "id")
     EmployeeDetails ed = new EmployeeDetails();
+    
+    
+    @OneToMany
+    @JoinTable(name = "user_contact", joinColumns = @JoinColumn(name = "emp_id"), inverseJoinColumns = @JoinColumn(name = "adrs_id"))
+    Collection<Address> a = new ArrayList<Address>();
+
+    public Collection<Address> getA() {
+        return a;
+    }
+
+    public void setA(Collection<Address> a) {
+        this.a = a;
+    }
 
     public EmployeeDetails getEd() {
         return ed;

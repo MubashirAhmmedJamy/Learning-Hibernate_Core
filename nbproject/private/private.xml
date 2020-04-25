@@ -5,7 +5,8 @@
         <group>
             <file>file:/G:/Programming/2.My%20Programs/Java/Hibernate_Core/src/hibernate/Employee.java</file>
             <file>file:/G:/Programming/2.My%20Programs/Java/Hibernate_Core/src/hibernate.cfg.xml</file>
-            <file>file:/G:/Programming/2.My%20Programs/Java/Hibernate_Core/src/hibernate/Utility.java</file>
+            <file>file:/G:/Programming/2.My%20Programs/Java/Hibernate_Core/src/hibernate/Address.java</file>
+            <file>file:/G:/Programming/2.My%20Programs/Java/Hibernate_Core/src/hibernate/EmployeeDetails.java</file>
             <file>file:/G:/Programming/2.My%20Programs/Java/Hibernate_Core/src/test/Test.java</file>
         </group>
     </open-files>
