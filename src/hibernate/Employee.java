@@ -18,11 +18,17 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.NamedQuery;
 import org.hibernate.annotations.Parameter;
 
 
 @Entity
 @Table(name = "Employee")
+@NamedQuery(name = "one", query = "from Employee")
+@NamedQuery(name = "two", query = "from Employee where id > ?100")
+@NamedQuery(name = "three", query = "select name,salary from Employee")
+@NamedQuery(name = "four", query = "select id,name,salary from Employee where id > :foo and salary > :range")
+
 public class Employee implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "gen")
