@@ -1,7 +1,6 @@
 package test;
 
 import hibernate.Employee;
-import hibernate.EmployeeDetails;
 import hibernate.Utility;
 import java.util.List;
 import org.hibernate.Criteria;
@@ -17,7 +16,7 @@ public class CriteriaAPItest {
         Session session = sessionFactory.openSession();
         session.beginTransaction();
         
-        System.out.println("Fetching all records::\n\n");
+        System.out.println("\n\nFetching all records::\n\n");
         
         Criteria criteria = session.createCriteria(Employee.class);
         
@@ -39,7 +38,7 @@ public class CriteriaAPItest {
         }
         
         
-        System.out.println("Fetching with multiple OR Restrictions::\n\n");
+        System.out.println("\n\nFetching with multiple OR Restrictions::\n\n");
 
         criteria = session.createCriteria(Employee.class);
         
@@ -51,15 +50,15 @@ public class CriteriaAPItest {
         }
         
         
-        System.out.println("Fetching selected properties with Projections::\n\n");
+        System.out.println("\n\nFetching selected properties with Projections::\n\n");
 
         criteria = session.createCriteria(Employee.class);
         
         ProjectionList projectionList = Projections.projectionList();
 
-        projectionList.add(Projections.property("id").as("id"));
-        projectionList.add(Projections.property("name").as("name"));
-        projectionList.add(Projections.property("salary").as("salary"));
+        projectionList.add(Projections.property("id"));
+        projectionList.add(Projections.property("name"));
+        projectionList.add(Projections.property("salary"));
 //      projectionList.add(Projections.property("ed").as("ed"));
         
         criteria.setProjection(projectionList);

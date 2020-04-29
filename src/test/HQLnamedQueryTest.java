@@ -41,6 +41,8 @@ public class HQLnamedQueryTest {
         
         q = s.getNamedQuery("two");
         q.setInteger(100, 5);
+//        q.setParameter(100, l);
+        
         List<Employee> k = q.list();
         
         for(Employee e : k){
@@ -69,8 +71,11 @@ public class HQLnamedQueryTest {
         
         q = s.getNamedQuery("four");
         
-        q.setInteger("foo", 5);
-        q.setDouble("range", 21300000);
+//        q.setInteger("foo", 5);
+//        q.setDouble("range", 21300000);
+        
+        q.setParameter("foo", 5);
+        q.setParameter("range", 21300000.0);
         
         m = q.list();
         

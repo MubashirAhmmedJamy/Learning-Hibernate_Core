@@ -2,6 +2,13 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/G:/Programming/2.My%20Programs/Java/Hibernate_Core/src/test/HQLtest.java</file>
+            <file>file:/G:/Programming/2.My%20Programs/Java/Hibernate_Core/src/hibernate/Employee.java</file>
+            <file>file:/G:/Programming/2.My%20Programs/Java/Hibernate_Core/src/test/CriteriaAPItest.java</file>
+            <file>file:/G:/Programming/2.My%20Programs/Java/Hibernate_Core/src/test/HQLnamedQueryTest.java</file>
+            <file>file:/G:/Programming/2.My%20Programs/Java/Hibernate_Core/src/test/HQLupdateDeleteTest.java</file>
+            <file>file:/G:/Programming/2.My%20Programs/Java/Hibernate_Core/src/test/Test.java</file>
+        </group>
     </open-files>
 </project-private>

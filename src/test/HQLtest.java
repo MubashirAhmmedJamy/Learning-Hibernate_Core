@@ -16,7 +16,7 @@ public class HQLtest {
         Session s = sf.openSession();
         s.beginTransaction();
 
-
+        System.out.println("1. Selecting all fields:\n");
         Query q = s.createQuery("from Employee");
         List<Employee> l = q.list();
 //        s.getTransaction().commit();
@@ -33,7 +33,7 @@ public class HQLtest {
             System.out.println("Employee "+e.getName()+" lives in "+i.next().getEmp_address()+" and "+i.next().getEmp_address());
         }
         
-        System.out.println("\n\nSelecting limited fields::\n\n");
+        System.out.println("\n\n2. Selecting limited fields with no condition::\n\n");
         q = s.createQuery("select name,salary from Employee");
         q.setFirstResult(3);
         q.setMaxResults(5);
@@ -50,8 +50,12 @@ public class HQLtest {
         
         q = s.createQuery("select id,name,salary from Employee where id > :foo and salary > :range");
         
-        q.setInteger("foo", 5);
-        q.setDouble("range", 21300000);
+//        q.setInteger("foo", 5);
+//        q.setDouble("range", 21300000);
+        
+        
+        q.setParameter("range", 21300000.0);
+        q.setParameter("foo", 5);
         
         m = q.list();
         

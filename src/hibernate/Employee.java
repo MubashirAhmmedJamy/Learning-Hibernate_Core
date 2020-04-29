@@ -48,16 +48,23 @@ public class Employee implements Serializable{
     
     @Temporal(TemporalType.TIMESTAMP)
     private Date joining_date = new Date();
-    
+
+
+//    ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
     @OneToOne
     @JoinColumn(name = "id")
     EmployeeDetails ed = new EmployeeDetails();
-    
+
+//    ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     
     @OneToMany
     @JoinTable(name = "user_contact", joinColumns = @JoinColumn(name = "emp_id"), inverseJoinColumns = @JoinColumn(name = "adrs_id"))
     Collection<Address> a = new ArrayList<Address>();
 
+//    ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    
+    
     public Collection<Address> getA() {
         return a;
     }

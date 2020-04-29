@@ -12,16 +12,16 @@ public class HQLupdateDeleteTest {
         session.beginTransaction();
         
         Query query = session.createQuery("UPDATE Employee SET salary = :newSal WHERE id = :empId");
-        query.setParameter("newSal", 500000.00);
-        query.setParameter("empId", 20);
+        query.setParameter("newSal", 600000.00);
+        query.setParameter("empId", 40);
         query.executeUpdate();
         
         
         query = session.createQuery("DELETE FROM Employee WHERE id = :empId");
-        query.setParameter("empId", 2);
+        query.setParameter("empId", 6);
         query.executeUpdate();
         
-        session.getTransaction().commit();
+//        session.getTransaction().commit();
         session.close();
         sessionFactory.close();
     }
